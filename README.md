@@ -52,4 +52,4 @@ php -S localhost:8000 -t api
 Test the API endpoints using [Postman](https://www.postman.com/).
 
 ## License
-See [License](./LICENSE.txt)
+See [License](./LICENSE)
