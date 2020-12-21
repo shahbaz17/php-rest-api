@@ -28,14 +28,16 @@ Create the database and user for the project.
 mysql -u root -p
 CREATE DATABASE blog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'rest_api_user'@'localhost' identified by 'rest_api_password';
-GRANT ALL on rest_api.* to 'rest_api_user'@'localhost';
+GRANT ALL on blog.* to 'rest_api_user'@'localhost';
 quit
 ```
 
 Create the `post` table.
 
 ```php
-mysql -u rest_api_user -p rest_api_password blog
+mysql -u rest_api_user -p;
+// Enter your password
+use blog;
 
 CREATE TABLE `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
