@@ -27,7 +27,7 @@ if ($uri[1] == 'posts' and isset($uri[2])) {
     exit();
 }
 
-// the user id is, of course, optional and must be a number:
+// the post id is, of course, optional and must be a number:
 $postId = null;
 if (isset($uri[2])) {
     $postId = (int) $uri[2];
@@ -35,6 +35,6 @@ if (isset($uri[2])) {
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-// pass the request method and user ID to the Post and process the HTTP request:
+// pass the request method and post ID to the Post and process the HTTP request:
 $controller = new Post($dbConnection, $requestMethod, $postId);
 $controller->processRequest();
