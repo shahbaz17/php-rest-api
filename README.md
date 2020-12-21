@@ -62,8 +62,6 @@ Install the project dependencies and start the PHP server:
 composer install
 ```
 
-Run Server:
-
 ```bash
 php -S localhost:6000 -t api
 ```
