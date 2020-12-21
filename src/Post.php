@@ -48,7 +48,7 @@ class Post {
             SELECT 
                 id, title, body, author, author_picture, created_at
             FROM
-                posts;
+                post;
         ";
 
         try {
@@ -82,7 +82,7 @@ class Post {
         }
 
         $query = "
-            INSERT INTO posts 
+            INSERT INTO post 
                 (title, body, author, author_picture)
             VALUES
                 (:title, :body, :author, :author_picture);
@@ -118,7 +118,7 @@ class Post {
         }
 
         $statement = "
-            UPDATE posts
+            UPDATE post
             SET 
                 title = :title,
                 body  = :body,
@@ -153,7 +153,7 @@ class Post {
         }
 
         $query = "
-            DELETE FROM posts
+            DELETE FROM post
             WHERE id = :id;
         ";
 
@@ -175,7 +175,7 @@ class Post {
             SELECT 
                 id, title, body, author, author_picture, created_at
             FROM
-                posts
+                post
             WHERE id = :id;
         ";
 
@@ -197,7 +197,7 @@ class Post {
         if (! isset($input['body'])) {
             return false;
         }
-        // Add other fields or use Magic's validate
+
         return true;
     }
 
