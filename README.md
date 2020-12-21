@@ -1,55 +1,85 @@
-# PHP Rest API
+# Build a Simple REST API in PHP
 
-This is a simple PHP REST API.
+This example shows how to build a simple REST API in core PHP.
 
-## Installation
+Please read [dev.to](https://dev.to/shahbaz17/secure-your-php-rest-api-with-magic-42kn-temp-slug-114164?preview=825345eb550c6dca02b45aefc1e0d0b40eeffd0d695ba8ca9ffe213035a36f0b51f1a11b0927bc3780ca24e866a689db80e8d11cc587b46d31fecfcc) to learn more about REST API.
 
 ### Prerequisites
 
- * PHP 5.6.0 and later.
- * MySQL
+- [PHP 5.6.0 and later](https://www.php.net/downloads.php).
+- [MySQL](https://www.mysql.com/downloads/)
+- [Composer](http://getcomposer.org/)
+- [Postman](https://www.postman.com/downloads/)
 
-### Composer
+## Getting Started
 
-You can install the bindings via [Composer](http://getcomposer.org/). 
+Clone this project with the following commands:
 
-To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
+```bash
+git clone https://github.com/shahbaz17/php-rest-api.git
+cd php-rest-api
+```
+
+### Configure the application
+
+Create the database and user for the project.
 
 ```php
-require_once('vendor/autoload.php');
+mysql -u root -p
+CREATE DATABASE blog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'rest_api_user'@'localhost' identified by 'rest_api_password';
+GRANT ALL on rest_api.* to 'rest_api_user'@'localhost';
+quit
 ```
-### DATABASE
-Import the php-rest-api.sql file, copy `.env.example` into `.env` and update the configuration as per your configuration.
+
+Create the `post` table.
+
+```php
+mysql -u rest_api_user -p rest_api_password blog
+
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `author` varchar(255),
+  `author_picture` varchar(255),
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+```
+
+Copy `.env.example` to `.env` file and enter your database deatils.
+
+```bash
+cp .env.example .env
+```
 
 ## Development
 
-Get [Composer][composer]. For example, on Mac OS:
-
-```bash
-brew install composer
-```
-
-Install dependencies:
+Install the project dependencies and start the PHP server:
 
 ```bash
 composer install
 ```
 
 Run Server:
+
 ```bash
-php -S localhost:8000 -t api
+php -S localhost:6000 -t api
 ```
 
-## API
-| API               | CRUD          | Description  |
-| :-------------     |:-------------:| ------------:|
-| GET /post         | **READ**      | Get the Posts from `posts` table |
-| GET /post{id}     | **READ**      | Get a single Post from `posts` table |
-| POST /post        | **CREATE**    | Create a Post and insert into `posts` table |
-| PUT  /post/{id}   | **UPDATE**    | Update the Post in `posts` table |
-| DELETE /post/{id} | **DELETE**    | Delete a Post from `posts` table |
+## Your APIs
+
+| API               |    CRUD    |                                Description |
+| :---------------- | :--------: | -----------------------------------------: |
+| GET /posts        |  **READ**  |        Get all the Posts from `post` table |
+| GET /post/{id}    |  **READ**  |        Get a single Post from `post` table |
+| POST /post        | **CREATE** | Create a Post and insert into `post` table |
+| PUT /post/{id}    | **UPDATE** |            Update the Post in `post` table |
+| DELETE /post/{id} | **DELETE** |            Delete a Post from `post` table |
 
 Test the API endpoints using [Postman](https://www.postman.com/).
 
 ## License
+
 See [License](./LICENSE)
