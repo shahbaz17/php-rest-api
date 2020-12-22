@@ -6,7 +6,7 @@ Please read https://dev.to/shahbaz17/build-a-simple-rest-api-in-php-2edl to lear
 
 ### Prerequisites
 
-- [PHP 5.6.0 and later](https://www.php.net/downloads.php).
+- [PHP](https://www.php.net/downloads.php).
 - [MySQL](https://www.mysql.com/downloads/)
 - [Composer](http://getcomposer.org/)
 - [Postman](https://www.postman.com/downloads/)
