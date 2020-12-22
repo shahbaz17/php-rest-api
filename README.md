@@ -2,7 +2,7 @@
 
 This example shows how to build a simple REST API in core PHP.
 
-Please read [dev.to](https://dev.to/shahbaz17/secure-your-php-rest-api-with-magic-42kn-temp-slug-114164?preview=825345eb550c6dca02b45aefc1e0d0b40eeffd0d695ba8ca9ffe213035a36f0b51f1a11b0927bc3780ca24e866a689db80e8d11cc587b46d31fecfcc) to learn more about REST API.
+Please read https://dev.to/shahbaz17/build-a-simple-rest-api-in-php-2edl to learn more about REST API.
 
 ### Prerequisites
 
