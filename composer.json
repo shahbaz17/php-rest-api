@@ -1,10 +1,20 @@
 {
-  "require": {
-      "vlucas/phpdotenv": "^2.4"
-  },
-  "autoload": {
-      "psr-4": {
-          "Src\\": "src/"
-      }
-  }
+	"name": "shahbaz/php-rest-api",
+	"description": "A Simple REST API in PHP",
+	"type": "project",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mohammad Shahbaz Alam",
+			"email": "shahbaz@magic.link"
+		}
+	],
+	"require": {
+		"vlucas/phpdotenv": "^5.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Src\\": "src/"
+		}
+	}
 }

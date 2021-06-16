@@ -11,23 +11,22 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode( '/', $uri );
 
-// all of our endpoints start with /post or /posts
+// endpoints starting with `/post` or `/posts` for GET shows all posts
 // everything else results in a 404 Not Found
 if ($uri[1] !== 'post') {
-
-    if($uri[1] !== 'posts'){
-        header("HTTP/1.1 404 Not Found");
-        exit();
-    }
-    
+  if($uri[1] !== 'posts'){
+    header("HTTP/1.1 404 Not Found");
+    exit();
+  }
 }
 
+// endpoints starting with `/posts` for POST/PUT/DELETE results in a 404 Not Found
 if ($uri[1] == 'posts' and isset($uri[2])) {
     header("HTTP/1.1 404 Not Found");
     exit();
 }
 
-// the post id is, of course, optional and must be a number:
+// the post id is, of course, optional and must be a number
 $postId = null;
 if (isset($uri[2])) {
     $postId = (int) $uri[2];

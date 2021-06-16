@@ -65,7 +65,7 @@ composer install
 ```
 
 ```bash
-php -S localhost:8008 -t api
+php -S localhost:8000 -t api
 ```
 
 ## Your APIs
